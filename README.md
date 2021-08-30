@@ -18,9 +18,17 @@ Comming Soon - NodeJS and Express JS
 
 ## Installation Procedure:
 
-### 1: Clone and fork this repostory. That's it
+## Installation Procedure:
 
-Don't forget to give this repository as credit.
+##### 1: Clone and fork this repostory
+
+##### 2: Download and install NodeJs
+
+##### 3: Open project, go to terminal and run this command. npm install
+
+##### 4: You are ready to start this project, just type npm run dev and here you go
+
+If you wanna use this project, don't forget to give a credit to this repository.
 
 ## Author
 
