@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../assets/css/home.css';
-import profile from '../assets/images/ProfilePicture.jpg';
+import profilePic from '../assets/images/ProfilePicture.jpg';
 
 const HomeScreen = () => {
 	return (
@@ -25,7 +25,7 @@ const HomeScreen = () => {
 					</div>
 					<div className='home-image'>
 						<div className='image-box'>
-							<img src={profile} alt='Profile' />
+							<img src={profilePic} alt='Profile' />
 						</div>
 					</div>
 				</div>
