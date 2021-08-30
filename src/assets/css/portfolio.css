@@ -1,154 +1,104 @@
-/* -------------
-Google Fonts - Poppins
----------------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* -------------
-Global Colors
----------------- */
-:root {
-	--primaryColor: #e02f6b;
-	--dark-blue: #18293c;
-	--orange: #ffa500;
-	--green-yello: #cddc39;
-	--pink-light: #efa2b4;
-	--cyan-light: #aef1ee;
-	--white: #ffffff;
-	--white-alpha-40: rgba(255, 255, 255, 0.4);
-	--white-alpha-25: rgba(255, 255, 255, 0.25);
-	--white-alpha-50: rgba(255, 255, 255, 0.5);
-	--white-alpha-65: rgba(255, 255, 255, 0.65);
-	--backdrop-filter-blur: blur(5px);
+.portfolio-item {
+	width: calc((100% / 3) - 30px);
+	margin: 0 15px 30px;
 }
 
-/* -------------
-Global Setting
----------------- */
-*,
-::before,
-::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	outline: none;
+.portfolio-item-thumbnail img {
+	width: 100%;
+	border-radius: 10px;
 }
 
-/* -------------
-Main CSS
----------------- */
-
-body {
-	min-height: 100vh;
-	background-image: linear-gradient(to bottom right, #efa2b4, #aef1ee);
-	background-attachment: fixed;
-	font-size: 16px;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 300px;
-	line-height: 1.5;
-	overflow-x: hidden;
-	-webkit-top-highlight-color: tranparent;
-	padding: 35px 15px;
-	user-select: none;
+.portfolio-item-thumbnail {
+	padding: 10px;
+	background-color: var(--white-alpha-25);
+	border: 1px solid var(--white-alpha-40);
+	border-radius: 10px;
 }
 
-body::before {
-	content: '';
+.portfolio-item h3 {
+	font-size: 20px;
+	text-transform: capitalize;
+	margin: 20px 0;
+}
+
+.portfolio-item-details {
+	display: none;
+}
+
+/* -- Portfolio Popup -- */
+.portfolio-popup {
 	position: fixed;
 	left: 0;
 	top: 0;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
-	opacity: 0.12;
+	z-index: 200;
+	visibility: hidden;
 }
 
-.main {
-	max-width: 1200px;
-	margin: auto;
-	transition: all 0.5s ease-in-out;
+.portfolio-popup.open {
+	visibility: visible;
+	overflow-y: auto;
+}
+
+.pp-inner {
+	min-height: 100vh;
+	padding: 40px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pp-content {
+	background-color: var(--white-alpha-50);
+	padding: 30px;
+	border-radius: 30px;
+	max-width: 900px;
+	width: 100%;
+	border: 1px solid var(--white-alpha-65);
+	backdrop-filter: var(--backdrop-filter-blur);
+	transform: scale(0.5);
+}
+.portfolio-popup.open .pp-content {
+	transform: scale(1);
+	transition: all 0.4s ease;
+}
+.pp-header {
 	position: relative;
 }
 
-.main.fade-out {
-	opacity: 0.09;
-}
-.container {
-	padding: 0px 40px;
-	width: 100%;
-}
-
-.row {
+.pp-header .btn {
+	height: 40px;
+	width: 40px;
+	padding: 0;
 	display: flex;
-	flex-wrap: wrap;
-}
-
-.align-item-center {
+	justify-content: center;
 	align-items: center;
+	position: absolute;
+	right: -40px;
+	top: -40px;
 }
 
-h1,
-h2 {
-	font-weight: 600;
+.pp-thumbnail img {
+	border-radius: 10px;
 }
-h3,
-h4,
-h5 {
+
+.pp-header h3 {
+	font-size: 25px;
+	text-transform: capitalize;
+	margin: 20px 0 15px;
+}
+.pp-body .description {
+	margin-bottom: 20px;
+}
+.pp-body .general-info li {
+	margin-bottom: 10px;
 	font-weight: 500;
-}
-img {
-	max-width: 100%;
-	vertical-align: middle;
-}
-section {
-	background-color: var(--white-alpha-25);
-	border: 1px solid var(--white-alpha-40);
-	border-radius: 30px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	-ms-border-radius: 30px;
-	-o-border-radius: 30px;
-}
-
-.section-title {
-	padding: 0 15px;
-	width: 100%;
-	text-align: center;
-	margin-bottom: 40px;
-}
-.sec-padding {
-	padding: 80px 0;
-}
-.section-title h2 {
-	font-size: 40px;
 	text-transform: capitalize;
 }
-
-a {
-	text-decoration: none;
+.pp-body .general-info li span {
+	font-weight: 300;
 }
-
-ul {
-	list-style: none;
-}
-
-.hidden {
-	display: none !important;
-}
-
-.flex-end {
-	justify-content: flex-end;
-}
-
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+.pp-body .general-info li a {
+	text-transform: lowercase;
+	color: var(--primaryColor);
 }
