@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/css/about.css';
+import '../assets/css/about.scss';
 import aboutMePic from '../assets/images/AboutMe.png';
 const AboutScreen = () => {
+	const [aboutTabs, setaboutTabs] = useState(true);
 	return (
 		<section className='about-section sec-padding'>
 			<div className='container'>
@@ -43,20 +44,25 @@ const AboutScreen = () => {
 						<div className='about-tabs'>
 							<button
 								type='button'
-								className='tab-item active'
+								className={`tab-item ${aboutTabs && 'active'}`}
 								data-target='#education'
+								onClick={() => setaboutTabs(!aboutTabs)}
 							>
 								Education
 							</button>
 							<button
 								type='button'
-								className='tab-item'
+								className={`tab-item ${!aboutTabs && 'active'}`}
 								data-target='#experience'
+								onClick={() => setaboutTabs(!aboutTabs)}
 							>
 								Experience
 							</button>
 						</div>
-						<div className='tab-content active' id='education'>
+						<div
+							className={`tab-content ${aboutTabs && 'active'}`}
+							id='education'
+						>
 							<div className='timeline'>
 								<div className='timeline-item'>
 									<span className='date'>2013 - 2016</span>
@@ -90,7 +96,10 @@ const AboutScreen = () => {
 								</div>
 							</div>
 						</div>
-						<div className='tab-content' id='experience'>
+						<div
+							className={`tab-content ${!aboutTabs && 'active'}`}
+							id='experience'
+						>
 							<div className='timeline'>
 								<div className='timeline-item'>
 									<span className='date'>2013 - 2018</span>
@@ -124,12 +133,12 @@ const AboutScreen = () => {
 								</div>
 							</div>
 						</div>
-						<NavLink to='portfolio'>
+						<NavLink to='/portfolio'>
 							<button type='button' className='btn'>
 								Download CV
 							</button>
 						</NavLink>
-						<NavLink to='contact'>
+						<NavLink to='/contact'>
 							<button type='button' className='btn'>
 								Contact Me
 							</button>

@@ -1,30 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ScreenLoader from './components/ScreenLoader';
 import { Route, Switch } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
 import ContactScreen from './screens/ContactScreen';
 import PortfolioScreen from './screens/PortfolioScreen';
+import NavMenu from './components/NavMenu';
+
 function App() {
+	const [loader, setloader] = useState(true);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setloader(false);
+		}, 200);
+	});
 	return (
-		<div className='main'>
-			<ScreenLoader />
-			<Switch>
-				<Route exact path='/' render={() => <HomeScreen title='Home Page' />} />
-				<Route
-					path='/about'
-					render={() => <AboutScreen title='About Page' />}
-				/>
-				<Route
-					path='/portfolio'
-					render={() => <PortfolioScreen title='Portfolio Page' />}
-				/>
-				<Route
-					path='/contact'
-					render={() => <ContactScreen title='Contact Page' />}
-				/>
-			</Switch>
-		</div>
+		<>
+			{loader === false ? (
+				<div className='main'>
+					<NavMenu />
+					<Switch>
+						<Route exact path='/' component={HomeScreen} />
+						<Route path='/about' component={AboutScreen} />
+						<Route path='/portfolio' component={PortfolioScreen} />
+						<Route path='/contact' component={ContactScreen} />
+						{/* <Route path='/one/:id' component={PortfolioModal} /> */}
+					</Switch>
+				</div>
+			) : (
+				<ScreenLoader />
+			)}
+		</>
 	);
 }
 

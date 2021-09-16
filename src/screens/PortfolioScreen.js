@@ -1,31 +1,47 @@
-import React from 'react';
-import '../assets/css/portfolio.css';
-import portfolioDetails from '../data/portfolio';
-
+import React, { useState } from 'react';
+import '../assets/css/portfolio.scss';
+import PortfolioModal from '../components/PortfolioModal';
+import portfolioItems from '../data/portfolio';
 const PortfolioScreen = () => {
+	const [portfolio, setportfolio] = useState({ data: null, show: false });
+
+	const Item = (portfolioItem) => {
+		setportfolio({
+			data: portfolioItem,
+			show: true,
+		});
+	};
 	return (
-		<section class='portfolio-section sec-padding'>
-			<div class='container'>
-				<div class='row'>
-					<div class='section-title'>
-						<h2>Recent Work</h2>
+		<>
+			<section className='portfolio-section sec-padding'>
+				<div className='container'>
+					<div className='row'>
+						<div className='section-title'>
+							<h2>Recent Work</h2>
+						</div>
+					</div>
+					<div className='row'>
+						{portfolioItems.map((portfolioItem) => (
+							<div className='portfolio-item' key={portfolioItem._id}>
+								<div className='portfolio-item-thumbnail'>
+									<img src={portfolioItem.image} alt='portfolio item thumb' />
+									<h3 className='portfolio-item-title'>
+										{portfolioItem.title}
+									</h3>
+									<button
+										onClick={() => Item(portfolioItem)}
+										type='button'
+										className='btn view-project-btn'>
+										View Project
+									</button>
+								</div>
+							</div>
+						))}
+						<PortfolioModal portfolioData={portfolio} show={portfolio.show} />
 					</div>
 				</div>
-				<div class='row'>
-					{portfolioDetails.map((portfolioItem) => (
-						<div class='portfolio-item'>
-							<div class='portfolio-item-thumbnail'>
-								<img src={portfolioItem.image} alt='portfolio item thumb' />
-								<h3 class='portfolio-item-title'>{portfolioItem.title}</h3>
-								<button type='button' class='btn view-project-btn'>
-									View Project
-								</button>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../assets/css/loader.scss';
 const ScreenLoader = () => {
 	return (
 		<div className='page-loader'>

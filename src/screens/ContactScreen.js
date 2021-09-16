@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/css/contact.css';
+import '../assets/css/contact.scss';
 const ContactScreen = () => {
 	return (
 		<section className='contact-section sec-padding'>
