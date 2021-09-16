@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import '../assets/css/portfolio.scss';
 import PortfolioModal from '../components/PortfolioModal';
 import portfolioItems from '../data/portfolio';
-const PortfolioScreen = () => {
-	const [portfolio, setportfolio] = useState({ data: null, show: false });
 
-	const Item = (portfolioItem) => {
-		setportfolio({
-			data: portfolioItem,
-			show: true,
-		});
+const PortfolioScreen = () => {
+	const [data, setData] = useState(null);
+	const [visible, setVisible] = useState(false);
+
+	const toggleItem = (portfolioItem) => {
+		setData(portfolioItem);
+		setVisible(!visible);
 	};
+
 	return (
 		<>
 			<section className='portfolio-section sec-padding'>
@@ -28,7 +30,7 @@ const PortfolioScreen = () => {
 										{portfolioItem.title}
 									</h3>
 									<button
-										onClick={() => Item(portfolioItem)}
+										onClick={() => toggleItem(portfolioItem)}
 										type='button'
 										className='btn view-project-btn'>
 										View Project
@@ -36,7 +38,11 @@ const PortfolioScreen = () => {
 								</div>
 							</div>
 						))}
-						<PortfolioModal portfolioData={portfolio} show={portfolio.show} />
+						{visible === true && data !== null ? (
+							<PortfolioModal data={data} closeModal={() => toggleItem()} />
+						) : (
+							''
+						)}
 					</div>
 				</div>
 			</section>

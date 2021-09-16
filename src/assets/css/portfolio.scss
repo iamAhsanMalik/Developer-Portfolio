@@ -17,10 +17,12 @@
 	background-color: var(--white-alpha-25);
 	border: 1px solid var(--white-alpha-40);
 	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
 }
-.portfolio-item-details {
-	display: none;
-}
+
 .portfolio-popup {
 	position: fixed;
 	left: 0;
