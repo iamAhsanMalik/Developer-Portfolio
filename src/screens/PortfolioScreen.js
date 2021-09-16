@@ -38,10 +38,8 @@ const PortfolioScreen = () => {
 								</div>
 							</div>
 						))}
-						{visible === true && data !== null ? (
+						{visible === true && data !== null && (
 							<PortfolioModal data={data} closeModal={() => toggleItem()} />
-						) : (
-							''
 						)}
 					</div>
 				</div>
