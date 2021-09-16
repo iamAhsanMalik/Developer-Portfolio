@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/css/home.scss';
 import profilePic from '../assets/images/ProfilePicture.jpg';
 
 const HomeScreen = () => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/css/contact.scss';
 const ContactScreen = () => {
 	return (
 		<section className='contact-section sec-padding'>
@@ -42,8 +41,7 @@ const ContactScreen = () => {
 									<textarea
 										placeholder='Message'
 										className='input-control'
-										required
-									></textarea>
+										required></textarea>
 								</div>
 								<div className='submit-btn input-group'>
 									<button type='submit' className='btn'>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../assets/css/portfolio.scss';
 import PortfolioModal from '../components/PortfolioModal';
 import portfolioItems from '../data/portfolio';
 const PortfolioScreen = () => {

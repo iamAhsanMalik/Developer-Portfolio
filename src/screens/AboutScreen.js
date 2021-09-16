@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/css/about.scss';
 import aboutMePic from '../assets/images/AboutMe.png';
 const AboutScreen = () => {
 	const [aboutTabs, setaboutTabs] = useState(true);
@@ -46,23 +45,20 @@ const AboutScreen = () => {
 								type='button'
 								className={`tab-item ${aboutTabs && 'active'}`}
 								data-target='#education'
-								onClick={() => setaboutTabs(!aboutTabs)}
-							>
+								onClick={() => setaboutTabs(!aboutTabs)}>
 								Education
 							</button>
 							<button
 								type='button'
 								className={`tab-item ${!aboutTabs && 'active'}`}
 								data-target='#experience'
-								onClick={() => setaboutTabs(!aboutTabs)}
-							>
+								onClick={() => setaboutTabs(!aboutTabs)}>
 								Experience
 							</button>
 						</div>
 						<div
 							className={`tab-content ${aboutTabs && 'active'}`}
-							id='education'
-						>
+							id='education'>
 							<div className='timeline'>
 								<div className='timeline-item'>
 									<span className='date'>2013 - 2016</span>
@@ -98,8 +94,7 @@ const AboutScreen = () => {
 						</div>
 						<div
 							className={`tab-content ${!aboutTabs && 'active'}`}
-							id='experience'
-						>
+							id='experience'>
 							<div className='timeline'>
 								<div className='timeline-item'>
 									<span className='date'>2013 - 2018</span>

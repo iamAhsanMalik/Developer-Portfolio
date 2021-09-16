@@ -4,6 +4,15 @@ Google Fonts - Poppins
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+// Other Style Files
+
+@import 'navMenu.scss';
+@import 'loader.scss';
+@import 'home.scss';
+@import 'about.scss';
+@import 'portfolio.scss';
+@import 'contact.scss';
+
 /* -------------
 Global Colors
 ---------------- */
